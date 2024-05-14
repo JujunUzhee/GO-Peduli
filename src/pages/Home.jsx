@@ -5,9 +5,10 @@ import CaraouseComponent from "../components/CaraouselComponent";
 import DonasiComponent from "../components/DonasiComponent";
 import Location from "../components/Location";
 import Berita from "../components/Berita";
-import Footer from "../components/Footer";
+
 import Cards from "../components/Cards/Cards";
 import Selengkapnya from "../components/element/link/selengkapnya";
+import Footer from "../components/FooterComponent";
 
 const Home = () => {
   return (

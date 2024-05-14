@@ -2,9 +2,10 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import CaraouseComponent from '../components/CaraouselComponent'
 import DonasiComponent from '../components/DonasiComponent'
-import Footer from '../components/Footer'
+
 import CardInput from '../components/Cards/CardInput'
 import ButtonMore from '../components/element/button/buttonMore'
+import Footer from '../components/FooterComponent'
 
 const Donasiku = () => {
   return (

@@ -3,6 +3,14 @@ import Navbar from "../components/Navbar";
 import CaraouseComponent from "../components/CaraouselComponent";
 import { VisiMisi } from "../components/VisiMisi";
 
+import PilarKami from "../components/PilarKami";
+import Location from "../components/Location";
+import TeamComponent from "../components/Team";
+import Footer from "../components/FooterComponent";
+
+
+
+
 const Tentang = () => {
   return (
     <>
@@ -25,6 +33,14 @@ const Tentang = () => {
       <div className="flex mt-36 mx-32 gap-12 mb-16">
         <VisiMisi />
       </div>
+      <div className="w-full mt-36 ">
+        <PilarKami />
+      </div>
+      <Location />
+      <div className="w-full mt-2 mb-24">
+       <TeamComponent />
+      </div>
+      <Footer />
     </>
   );
 };
