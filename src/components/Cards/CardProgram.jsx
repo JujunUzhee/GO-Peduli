@@ -7,7 +7,7 @@ const CardProgram = () => {
       {programData.map((data, index) => {
         return (
           <div
-            className=" relative w-[345px] h-[345px] rounded overflow-hidden shadow-lg cursor-pointer"
+            className=" relative w-[345px] h-[350px] rounded overflow-hidden shadow-lg cursor-pointer"
             key={index}
           >
             <img className="w-full h-56" src={data.image} alt="Placeholder" />

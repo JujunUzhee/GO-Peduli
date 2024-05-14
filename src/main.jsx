@@ -9,6 +9,7 @@ import './index.css'
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
 import Donasiku from './pages/Donasiku.jsx';
+import Tentang from './pages/Tentang.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/donasiku",
     element: <Donasiku />,
+  },
+  {
+    path: "/tentang",
+    element: <Tentang />,
   },
 ]);
 

@@ -12,7 +12,7 @@ const DonasiComponent = ({count}) => {
          Salurkan Donasimu Disini
         </h2>
       </div>
-      <div className="flex justify-center items-center mt-6">
+      <div className="w-full flex justify-center items-center mt-6 ">
         <div className="grid grid-cols-3 gap-12 ">
           <CardDonasi count={count}/>
         </div>

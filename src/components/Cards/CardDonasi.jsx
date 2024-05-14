@@ -7,7 +7,7 @@ const DonasiCard = ({ count }) => {
     <>
       {dataDonasi.slice(0, count).map((donasi, index) => (
         <div key={index} className="max-w-sm rounded overflow-hidden shadow-lg">
-          <img src={donasi.image} alt="" className="w-full h-[236px]" />
+          <img src={donasi.image} alt="" className="w-full  h-80" />
           <div className="font-bold text-xl mb-2 text-center mt-4">
             {donasi.title}
           </div>
