@@ -3,6 +3,7 @@ import CardPilar from './Cards/CardPilar'
 
 
 
+
 const PilarKami = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const PilarKami = () => {
             <CardPilar />
             </div>
         </div>
+       
     </>
   )
 }
