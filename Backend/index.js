@@ -21,19 +21,6 @@ app.use(
 );
 
 
-<<<<<<< HEAD
-=======
-/**
- * Fungsi tambah mitra
- * @param {*} nama 
- * @param {*} nowa 
- * @param {*} email 
- * @param {*} lokasi 
- * @param {*} kategori_pakaian 
- * @param {*} pengantar 
- * @param {*} alamat 
- */
->>>>>>> 21e84cfecbd33ea81ff62eae0cce15b5b388ac23
 const daftarMitra = async (nama, nowa, email, lokasi, kategori_pakaian, pengantar, alamat) => {
   let sql = "INSERT INTO formulir_mitra(nama, nowa, email, lokasi, kategori_pakaian, pengantar, alamat) VALUES (?, ?, ?, ?, ?, ?, ?)"
   await query(sql, [nama, nowa, email, lokasi, kategori_pakaian, pengantar, alamat]);
@@ -54,10 +41,7 @@ app.post("/formulir-mitra", async (req, res) => {
   })
 })
 
-<<<<<<< HEAD
 app.use(router);
-=======
->>>>>>> 21e84cfecbd33ea81ff62eae0cce15b5b388ac23
 app.listen(process.env.PORT_DEV, () => {
   testConnection();
   console.log(`Server started on http://localhost:${process.env.PORT_DEV}`);
