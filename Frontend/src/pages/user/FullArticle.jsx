@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { beritaData } from '../data/beritaData';
-import Navbar from '../components/Navbar';
-import Footer from '../components/FooterComponent';
-import ButtonChatus from '../components/element/button/buttonChat';
-import ScrollToTop from '../components/scrollTop';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/FooterComponent';
+import ButtonChatus from '../../components/element/button/buttonChat';
+import ScrollToTop from '../../components/scrollTop';
 import { FaUser, FaCalendar } from 'react-icons/fa';
 
 const FullArticle = () => {
   const { id } = useParams();
+  const [beritaData, setBeritaData] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await fetch('http://localhost:3000/berita')
+        const data = await response.json()
+        setBeritaData(data)
+      }
+      catch(e){
+        console.error("Error fetching data:", e);
+      }
+    }
+
+    fetchData()
+  }, [])
+
   const article = beritaData.find((article) => article.id === parseInt(id));
 
   if (!article) {

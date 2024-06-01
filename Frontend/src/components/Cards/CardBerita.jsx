@@ -1,11 +1,25 @@
-import React from "react";
-import { beritaData } from "../../data/beritaData";
+import React, { useEffect, useState } from "react";
+
 import ButtonRead from "../element/button/buttonRead";
 
-const CardBerita = ({ limit }) => {
+const CardBerita = ({ data, limit }) => {
 
+  const [beritaData, setBeritaData] = useState([])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await fetch('http://localhost:3000/home')
+        const data = await response.json()
+        setBeritaData(data.news)
+      }
+      catch(e){
+        console.error("Error fetching data:", e);
+      }
+    }
 
+    fetchData()
+  }, [])
   return (
     <>
       {beritaData.slice(0, limit).map((data) => (

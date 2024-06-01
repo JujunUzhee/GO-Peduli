@@ -1,7 +1,22 @@
-import React from "react";
-import { programData } from "../../data/programData";
+import React, { useEffect, useState } from "react";
+
 
 const CardProgram = ({limit}) => {
+  const [programData, setProgramData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/home');
+        const data = await response.json();
+        setProgramData(data.programs);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [])
   return (
     <>
       {programData.slice(0, limit).map((data, index) => {

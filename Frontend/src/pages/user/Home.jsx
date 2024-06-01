@@ -1,19 +1,33 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import CaraouseComponent from "../components/CaraouselComponent";
-import DonasiComponent from "../components/DonasiComponent";
-import Location from "../components/Location";
-import Cards from "../components/Cards/Cards";
-import Selengkapnya from "../components/element/link/selengkapnya";
-import Footer from "../components/FooterComponent";
-import ButtonChatus from "../components/element/button/buttonChat";
-import { dataDonasi } from "../data/donasiData";
-import CardBerita from "../components/Cards/CardBerita";
-import CardProgram from "../components/Cards/CardProgram";
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
+import CaraouseComponent from "../../components/CaraouselComponent";
+import DonasiComponent from "../../components/DonasiComponent";
+import Location from "../../components/Location";
+import Cards from "../../components/Cards/Cards";
+import Selengkapnya from "../../components/element/link/selengkapnya";
+import Footer from "../../components/FooterComponent";
+import ButtonChatus from "../../components/element/button/buttonChat";
+import CardBerita from "../../components/Cards/CardBerita";
+import CardProgram from "../../components/Cards/CardProgram";
 
 const Home = () => {
+  const [allDonasi, setAllDonasi] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/home');
+        const data = await response.json();
+        setAllDonasi(data.donations);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [])
   return (
-    <>
+    <div className="bg-white">
       <Navbar />
       <div className="relative h-[700px]">
         <CaraouseComponent />
@@ -43,7 +57,7 @@ const Home = () => {
         </div>
       </div>
       <div className=" mt-32 w-full ">
-        <DonasiComponent data={dataDonasi.slice(0, 3)} />
+        <DonasiComponent data={allDonasi.slice(0, 3)} />
         <div className="mt-10 flex justify-end mr-20">
           <Selengkapnya to="/donasiku" />
         </div>
@@ -61,7 +75,7 @@ const Home = () => {
       </div>
       <ButtonChatus />
       <Footer />
-    </>
+    </div>
   );
 };
 

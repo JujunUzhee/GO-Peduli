@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import MitraFormulir from '../components/MitraFormulir'
-import ScrollToTop from '../components/scrollTop'
+import Navbar from '../../components/Navbar'
+import MitraFormulir from '../../components/MitraFormulir'
+import ScrollToTop from '../../components/scrollTop'
 
 const FormulirMitra = () => {
   return (

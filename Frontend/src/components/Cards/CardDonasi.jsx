@@ -1,4 +1,3 @@
-// DonasiCard.js
 
 import React from "react";
 import { FaLocationDot, FaTruck } from "react-icons/fa6";

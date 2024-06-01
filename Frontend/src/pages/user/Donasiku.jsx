@@ -1,20 +1,36 @@
-import React, { useState } from 'react'
-import Navbar from '../components/Navbar'
-import CaraouseComponent from '../components/CaraouselComponent'
-import DonasiComponent from '../components/DonasiComponent'
-import CardInput from '../components/Cards/CardInput'
-import Footer from '../components/FooterComponent'
-import ButtonChatus from '../components/element/button/buttonChat'
-import ScrollToTop from '../components/scrollTop'
-import { dataDonasi } from '../data/donasiData'
+import React, { useEffect, useState } from 'react'
+import Navbar from '../../components/Navbar'
+import CaraouseComponent from '../../components/CaraouselComponent'
+import DonasiComponent from '../../components/DonasiComponent'
+import CardInput from '../../components/Cards/CardInput'
+import Footer from '../../components/FooterComponent'
+import ButtonChatus from '../../components/element/button/buttonChat'
+import ScrollToTop from '../../components/scrollTop'
+
 
 const Donasiku = () => {
   const [lokasi, setLokasi] = useState("");
   const [kategori, setKategori] = useState("");
-  const [filteredDonasi, setFilteredDonasi] = useState(dataDonasi);
+  const [filteredDonasi, setFilteredDonasi] = useState([]);
+  const [allDonasi, setAllDonasi] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/donasiku'); 
+        const data = await response.json();
+        setAllDonasi(data);
+        setFilteredDonasi(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleSearch = () => {
-    const filtered = dataDonasi.filter((donasi) => {
+    const filtered = allDonasi.filter((donasi) => {
       const matchLokasi = lokasi === "" || donasi.location.toLowerCase().includes(lokasi.toLowerCase());
       const matchKategori = kategori === "" || donasi.kategori.toLowerCase().includes(kategori.toLowerCase());
       return matchLokasi && matchKategori;

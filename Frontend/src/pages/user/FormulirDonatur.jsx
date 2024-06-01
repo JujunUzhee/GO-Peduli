@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import DonaturFormulir from '../components/DonaturFormulir'
-import ScrollToTop from '../components/scrollTop'
+import Navbar from '../../components/Navbar'
+import DonaturFormulir from '../../components/DonaturFormulir'
+import ScrollToTop from '../../components/scrollTop'
 
 const FormulirDonatur = () => {
   return (

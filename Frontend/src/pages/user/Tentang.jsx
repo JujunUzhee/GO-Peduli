@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import CaraouseComponent from "../components/CaraouselComponent";
-import { VisiMisi } from "../components/VisiMisi";
+import Navbar from "../../components/Navbar";
+import CaraouseComponent from "../../components/CaraouselComponent";
+import { VisiMisi } from "../../components/VisiMisi";
 
-import PilarKami from "../components/PilarKami";
-import Location from "../components/Location";
-import TeamComponent from "../components/Team";
-import Footer from "../components/FooterComponent";
-import ButtonChatus from "../components/element/button/buttonChat";
+import PilarKami from "../../components/PilarKami";
+import Location from "../../components/Location";
+import TeamComponent from "../../components/Team";
+import Footer from "../../components/FooterComponent";
+import ButtonChatus from "../../components/element/button/buttonChat";
 
 
 

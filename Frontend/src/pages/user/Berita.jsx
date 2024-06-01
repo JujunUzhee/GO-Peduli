@@ -1,22 +1,25 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
-import PublikasiComponent from "../components/PublikasiComponent";
-import ButtonChatus from "../components/element/button/buttonChat";
-import Footer from "../components/FooterComponent";
-import ScrollToTop from "../components/scrollTop";
-import CardInputBerita from "../components/Cards/CardInputBerita";
-import BeritaComponent from "../components/BeritaComponent";
-import { beritaData } from "../data/beritaData";
+import Navbar from "../../components/Navbar";
+import PublikasiComponent from "../../components/PublikasiComponent";
+import ButtonChatus from "../../components/element/button/buttonChat";
+import Footer from "../../components/FooterComponent";
+import ScrollToTop from "../../components/scrollTop";
+import CardInputBerita from "../../components/Cards/CardInputBerita";
+import BeritaComponent from "../../components/BeritaComponent";
+import { beritaData } from "../../data/beritaData";
 
 const Berita = () => {
   const [choose, setChoose] = useState("Berita");
   const [artikel, setArtikel] = useState("");
+  const [filterBerita, setFilterBerita] = useState([])
 
-  const filterBeritaData = beritaData.filter((data) => {
-    data.title.toLowerCase().includes(artikel.toLowerCase());
-  });
 
-  const onSearch = () => {};
+  const onSearch = () => {
+    const filterBeritaData = beritaData.filter((data) => {
+      data.title.toLowerCase().includes(artikel.toLowerCase());
+    });
+    setFilterBerita(filterBeritaData)
+  };
   return (
     <>
       <ScrollToTop />
@@ -39,7 +42,7 @@ const Berita = () => {
         </div>
         <div className="w-full">
           {choose === "Berita" ? (
-              <BeritaComponent news="Berita Terbaru" otherNews="Berita Lainnya" />
+              <BeritaComponent news="Berita Terbaru" otherNews="Berita Lainnya" data={filterBerita}/>
           ):
           <PublikasiComponent
           publikasi="Publikasi Terbaru"
