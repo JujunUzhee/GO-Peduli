@@ -21,7 +21,8 @@ import AdminBerita from './pages/admin/adminBerita.jsx';
 import AdminDonasiku from './pages/admin/adminDonasi.jsx';
 import AdminMitra from './pages/admin/adminMitra.jsx';
 import AdminChat from './pages/admin/adminChat.jsx';
-
+import Faq from './pages/user/Faq.jsx';
+import LaporanArticle from './pages/user/LaporanArticle.jsx';
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,14 @@ const router = createBrowserRouter([
   {
   path: '/admin/chat',
   element: <AdminChat />,
+},
+  {
+  path: "/faq",
+  element: <Faq />,
+},
+{
+  path: "/laporan/:id",
+  element: <LaporanArticle />,
 },
 
   {
