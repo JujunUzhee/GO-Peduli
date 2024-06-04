@@ -1,6 +1,6 @@
 import React from "react";
 import { FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
-import { FaFacebook, FaHandshakeAngle } from "react-icons/fa6";
+import { FaFacebook, FaHandshakeAngle, FaUser } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail, MdHandshake } from "react-icons/md";
 const DashboardComponent = () => {
@@ -88,7 +88,7 @@ const DashboardComponent = () => {
             </div>
 
             <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
-              <MdHandshake  className="text-4xl text-Green" />
+              <MdHandshake className="text-4xl text-Green" />
               <div className="text-left">
                 <p className="text-gray-500 font-bold">Total Donasi</p>
                 <p className="text-lg font-bold">200</p>
@@ -96,27 +96,39 @@ const DashboardComponent = () => {
             </div>
 
             <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
-              <FaHandshakeAngle className="text-4xl text-Green" />
+              <FaUser className="text-4xl text-Green" />
               <div className="text-left">
-                <p className="text-gray-500 font-bold">Total Mitra</p>
-                <p className="text-lg font-bold">100</p>
+                <p className="text-gray-500 font-bold">Total Donatur</p>
+                <p className="text-lg font-bold">1000</p>
               </div>
             </div>
-            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg text-center">
-              <p className="text-lg font-bold">150</p>
-              <p>Donasi berjalan</p>
+            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
+              <MdHandshake className="text-4xl text-Green" />
+              <div className="text-left">
+                <p className="text-gray-500 font-bold">Donasi Berjalan</p>
+                <p className="text-lg font-bold">150</p>
+              </div>
             </div>
-            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg text-center">
-              <p className="text-lg font-bold">50</p>
-              <p>Donasi Selesai</p>
+            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
+              <MdHandshake className="text-4xl text-Green" />
+              <div className="text-left">
+                <p className="text-gray-500 font-bold">Donasi Selesai</p>
+                <p className="text-lg font-bold">50</p>
+              </div>
             </div>
-            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg text-center">
-              <p className="text-lg font-bold">50</p>
-              <p>Pick Up</p>
+            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
+              <FaHandshakeAngle className="text-4xl text-Green" />
+              <div className="text-left">
+                <p className="text-gray-500 font-bold">Pick Up</p>
+                <p className="text-lg font-bold">50</p>
+              </div>
             </div>
-            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg text-center">
-              <p className="text-lg font-bold">150</p>
-              <p>Drop Off</p>
+            <div className="bg-loginLight ring-Green ring-2 p-4 rounded-lg flex items-center justify-center space-x-4">
+              <FaHandshakeAngle className="text-4xl text-Green" />
+              <div className="text-left">
+                <p className="text-gray-500 font-bold">Drof off</p>
+                <p className="text-lg font-bold">150</p>
+              </div>
             </div>
           </div>
         </div>
