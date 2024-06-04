@@ -5,6 +5,11 @@ import ButtonRead from "../element/button/buttonRead";
 const CardBerita = ({ data, limit }) => {
 
   const [beritaData, setBeritaData] = useState([])
+  const formatTanggal = (tanggal) => {
+    const date = new Date(tanggal);
+    const formattedDate = date.toLocaleDateString('id-ID', { timeZone: 'UTC' });
+    return formattedDate
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,10 +39,10 @@ const CardBerita = ({ data, limit }) => {
               <div className=" flex w-[102px] h-[32px] bg-GreenLight text-Green justify-center items-center rounded-xl">
                 <p className="text-center">News</p>
               </div>
-              <p className="text-sm font-semibold ml-4 mt-2">{data.date}</p>
+              <p className="text-sm font-semibold ml-4 mt-2">{formatTanggal(data.date)}</p>
             </div>
-            <div className="font-bold text-md mb-2 mt-4">{data.title}</div>
-            <p className=" text-sm">{data.descripsi}</p>
+            <div className="font-bold text-md mb-2 mt-4 h-14">{data.title}</div>
+            <p className=" text-sm h-16">{data.descripsi}</p>
             <ButtonRead id={data.id}/>
           </div>
         </div>

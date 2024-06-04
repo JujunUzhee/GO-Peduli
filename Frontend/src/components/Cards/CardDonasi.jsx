@@ -15,10 +15,10 @@ const DonasiCard = ({ data }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-4">
       <img src={`http://localhost:3000${data.image}`} alt="" className="w-full h-80 object-cover" />
-      <div className="font-bold text-xl mb-2 text-center mt-4">
+      <div className="font-bold text-xl mb-2 text-center mt-4 h-8">
         {data.title}
       </div>
-      <div className="px-6 py-4 flex items-center">
+      <div className="px-6 py-4 flex items-center h-20">
         <span className="mr-3 text-2xl">
           <FaLocationDot />
         </span>
@@ -42,7 +42,7 @@ const DonasiCard = ({ data }) => {
         </span>
         <p className="text-gray-700 text-sm">Hingga {formatTanggal(data.tanggal)}</p>
       </div>
-      <div className="px-6 py-4 flex items-center justify-center">
+      <div className="px-6 py-4 flex items-center justify-center ">
         <ButtonDonasi />
       </div>
     </div>

@@ -50,7 +50,6 @@ const Donasiku = () => {
       </div>
       <div className="mt-20 w-full">
         <DonasiComponent data={filteredDonasi} />
-       
       </div>
       <ButtonChatus />
       <Footer />

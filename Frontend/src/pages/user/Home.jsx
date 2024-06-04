@@ -50,7 +50,7 @@ const Home = () => {
         </div>
         <div className="flex justify-center items-center mt-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <CardProgram limit={3}/>
+            <CardProgram limit={3} />
           </div>
         </div>
         <div className="mt-10 flex justify-end pr-4 sm:pr-6 lg:pr-8">

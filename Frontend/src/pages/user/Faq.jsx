@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-<<<<<<< HEAD
-=======
-import CaraouseComponent from "../../components/CaraouselComponent";
-import { VisiMisi } from "../../components/VisiMisi";
-import PilarKami from "../../components/PilarKami";
-import Location from "../../components/Location";
-import TeamComponent from "../../components/Team";
->>>>>>> a4e3b8c54114c69c87cd8434479c6c7a01f01b04
 import Footer from "../../components/FooterComponent";
 import ButtonChatus from "../../components/element/button/buttonChat";
 import { faqData } from "../../data/faqData";

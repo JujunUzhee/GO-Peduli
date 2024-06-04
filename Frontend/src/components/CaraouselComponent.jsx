@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ButtonSlide from "./element/button/buttonSlide";
+import { useNavigate } from "react-router-dom";
 
 const slides = [
   { id: "slide1", src: "/image/caraousel1.png", align: "right" },
@@ -9,16 +10,20 @@ const slides = [
 
 export default function CaraouseComponent() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000); 
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   const handleSlideChange = (newIndex) => {
     setCurrentSlide(newIndex);
+  };
+  const handleCLick = () => {
+    navigate("/donasiku");
+    // window.scrollTo('#donasi', { behavior: 'smooth' });
   };
 
   return (
@@ -31,7 +36,10 @@ export default function CaraouseComponent() {
             index === currentSlide ? "block" : "hidden"
           }`}
         >
-          <img src={slide.src} className="w-full h-[400px] md:h-[550px] object-cover" />
+          <img
+            src={slide.src}
+            className="w-full h-[400px] md:h-[550px] object-cover"
+          />
           {slide.align !== "center" && (
             <div
               className={`absolute top-0 ${slide.align}-0 w-full md:w-1/2 h-[400px] md:h-[550px] flex flex-col justify-center items-center bg-SemiGreen bg-opacity-60 p-4`}
@@ -42,7 +50,10 @@ export default function CaraouseComponent() {
                     ? "Donasikan pakaian lebih mudah bersama Go peduli"
                     : "Satu gerakan untuk kebaikan"}
                 </h2>
-                <button className="text-white bg-Green hover:bg-DarkGreen rounded-3xl px-4 py-2 mt-4 font-bold">
+                <button
+                  className="text-white bg-Green hover:bg-DarkGreen rounded-3xl px-4 py-2 mt-4 font-bold"
+                  onClick={() => handleCLick()}
+                >
                   {slide.align === "right"
                     ? "Cepat, tepat, dan terpercaya"
                     : "Bantu mereka sekarang"}
@@ -66,7 +77,9 @@ export default function CaraouseComponent() {
           )}
           <div className="absolute flex justify-between items-center left-5 right-5 top-1/2 transform -translate-y-1/2">
             <ButtonSlide
-              left={`#${slides[(index - 1 + slides.length) % slides.length].id}`}
+              left={`#${
+                slides[(index - 1 + slides.length) % slides.length].id
+              }`}
               right={`#${slides[(index + 1) % slides.length].id}`}
               onClickLeft={() =>
                 handleSlideChange((index - 1 + slides.length) % slides.length)
