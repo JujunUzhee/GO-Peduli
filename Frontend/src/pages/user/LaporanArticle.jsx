@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { laporanData } from '../data/laporanData';
-import Navbar from '../components/Navbar';
-import Footer from '../components/FooterComponent';
-import ButtonChatus from '../components/element/button/buttonChat';
-import ScrollToTop from '../components/scrollTop';
+import { laporanData } from '../../data/laporanData';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/FooterComponent';
+import ButtonChatus from '../../components/element/button/buttonChat';
+import ScrollToTop from '../../components/scrollTop';
 import { FaUser, FaCalendar } from 'react-icons/fa';
 
 const LaporanArticle = () => {
