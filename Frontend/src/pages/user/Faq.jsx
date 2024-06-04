@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import CaraouseComponent from "../components/CaraouselComponent";
-import { VisiMisi } from "../components/VisiMisi";
-import PilarKami from "../components/PilarKami";
-import Location from "../components/Location";
-import TeamComponent from "../components/Team";
-import Footer from "../components/FooterComponent";
-import ButtonChatus from "../components/element/button/buttonChat";
-import { faqData } from "../data/faqData";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/FooterComponent";
+import ButtonChatus from "../../components/element/button/buttonChat";
+import { faqData } from "../../data/faqData";
 import { FaChevronRight } from "react-icons/fa6";
 
 const Faq = () => {

@@ -18,6 +18,7 @@ const Home = () => {
       try {
         const response = await fetch('http://localhost:3000/home');
         const data = await response.json();
+        console.log("Fetched data:", data);
         setAllDonasi(data.donations);
       } catch (error) {
         console.error("Error fetching data:", error);
