@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/home');
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/home`);
         const data = await response.json();
         console.log("Fetched data:", data);
         setAllDonasi(data.donations);
@@ -54,7 +54,7 @@ const Home = () => {
           </div>
         </div>
         <div className="mt-10 flex justify-end pr-4 sm:pr-6 lg:pr-8">
-         <Selengkapnya to="/program"/>
+         <Selengkapnya to="/berita"/>
         </div>
       </div>
       <div className=" mt-32 w-full ">

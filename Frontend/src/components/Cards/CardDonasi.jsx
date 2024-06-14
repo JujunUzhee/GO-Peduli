@@ -14,7 +14,7 @@ const DonasiCard = ({ data }) => {
   };
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-4">
-      <img src={`http://localhost:3000${data.image}`} alt="" className="w-full h-80 object-cover" />
+      <img src={`${import.meta.env.VITE_BACKEND_URL}${data.image}`} alt="" className="w-full h-80 object-cover" />
       <div className="font-bold text-xl mb-2 text-center mt-4 h-8">
         {data.title}
       </div>

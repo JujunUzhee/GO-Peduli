@@ -11,7 +11,7 @@ const CardProgram = ({ limit }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/home");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/home`);
         const data = await response.json();
         setProgramData(data.programs);
       } catch (error) {

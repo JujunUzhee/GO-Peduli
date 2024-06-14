@@ -20,4 +20,4 @@ const daftarMitra = async (nama, nowa, email, lokasi, kategori_pakaian, penganta
     })
   })
   
-  export default router
+  export default router 

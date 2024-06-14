@@ -58,8 +58,8 @@ const DashboardComponent = () => {
               <div className="text-green-500">
                 <i className="fas fa-users"></i>
               </div>
-              <div className="text-slate-500">
-                <p className="font-bold text-lg mb-5">Media Sosial</p>
+              <div className="">
+                <p className="font-bold text-lg mb-5 text-slate-500">Media Sosial</p>
                 <div className="flex space-x-2">
                   <i>
                     <FaFacebook />

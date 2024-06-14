@@ -2,10 +2,10 @@ import React from 'react'
 import SideBar from '../../components/admin/SideBar'
 const AdminBerita = () => {
   return (
-   <div className='flex'>
+   <div className='flex bg-loginLight min-h-screen'>
    <SideBar />
 
-<div className="overflow-x-auto rounded-lg border border-gray-200 w-full">
+<div className="overflow-x-auto rounded-lg border border-gray-200 w-full ml-7">
   <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
     <thead className="ltr:text-left rtl:text-right">
       <tr>

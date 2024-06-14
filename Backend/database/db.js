@@ -18,13 +18,15 @@ const testConnection=async()=>{
     }
 }
 
-const query = async (query,value)=>{
-    try{
-        const [result] = await db.query(query, value??[])
-        return result
-    }catch(e){
-        console.log("GAGAL")
+const query = async (query, value) => {
+    try {
+        const [result] = await db.query(query, value ?? []);
+        return result;
+    } catch (error) {
+        console.error("Query Error:", error);
+        throw error; 
     }
-}
+};
+
 
 export {testConnection,query}

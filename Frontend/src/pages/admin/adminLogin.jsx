@@ -86,7 +86,7 @@ const AdminLogin = () => {
 
             <div className="ml-72 mb-6">
               <a
-                href="/forgot-password"
+                href="#"
                 className="text-xs font-semibold text-DarkGreen hover:text-green-600"
               >
                 Forget Password?
