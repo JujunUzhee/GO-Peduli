@@ -1,12 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdDashboard } from "react-icons/md";
 import { GiGloves } from "react-icons/gi";
 import { FaCircleLeft, FaNewspaper } from "react-icons/fa6";
 import { FaUserFriends } from "react-icons/fa";
 import { IoChatboxEllipsesSharp } from "react-icons/io5";
+import AuthService from '../../services/AuthService';
 
 const SideBar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    AuthService.logout();
+    navigate("/admin/login");
+  };
+
   return (
     <aside className="bg-white">
       <div className="flex flex-col h-full">
@@ -65,15 +73,15 @@ const SideBar = () => {
           </nav>
         </div>
         <div className="flex items-center justify-center h-16">
-          <Link
-            to="/admin/login"
-            className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
-          >
-            <div className="h-5 w-5 mx-auto" />
-            <FaCircleLeft />
-            <span>Keluar</span>
-          </Link>
-        </div>
+      <button
+        onClick={handleLogout}
+        className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100"
+      >
+        <div className="h-5 w-5 mx-auto" />
+        <FaCircleLeft />
+        <span>Keluar</span>
+      </button>
+    </div>
       </div>
     </aside>
   );
