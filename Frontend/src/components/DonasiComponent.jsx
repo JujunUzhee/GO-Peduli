@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DonasiCard from "./Cards/CardDonasi";
 import ButtonMore from "./element/button/buttonMore";
 
+
 const DonasiComponent = ({ data }) => {
 
   const[showAll, setShowAll] = useState(false)
@@ -18,7 +19,7 @@ const DonasiComponent = ({ data }) => {
         </div>
       ) : (
         <>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" id="donasi">
             <h2 className="my-4 text-2xl md:text-3xl text-DarkGreen font-bold hover:text-Green hover:cursor-pointer">
               Salurkan Donasimu Disini
             </h2>
@@ -30,7 +31,7 @@ const DonasiComponent = ({ data }) => {
               ))}
             </div>
           </div>
-          {!showAll && data.length > 6 && (
+          {!showAll && data.length > 3 && (
             <div className="flex items-center justify-center mt-20 mb-44">
             <ButtonMore onClick={handleShowMore}/>
           </div>

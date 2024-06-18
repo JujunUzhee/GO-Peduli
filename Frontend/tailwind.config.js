@@ -1,4 +1,6 @@
-import daisyui from "daisyui"
+import daisyui from "daisyui";
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -18,6 +20,15 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.text-stroke-white': {
+          '-webkit-text-stroke': '0.5px white',
+        },
+       
+      })
+    })
+  ],
 }
-

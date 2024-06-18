@@ -17,7 +17,7 @@ const Donasiku = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/donasiku'); 
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/donasiku`); 
         const data = await response.json();
         setAllDonasi(data);
         setFilteredDonasi(data);
@@ -50,7 +50,6 @@ const Donasiku = () => {
       </div>
       <div className="mt-20 w-full">
         <DonasiComponent data={filteredDonasi} />
-       
       </div>
       <ButtonChatus />
       <Footer />

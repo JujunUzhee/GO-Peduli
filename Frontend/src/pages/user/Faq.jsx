@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import CaraouseComponent from "../../components/CaraouselComponent";
-import { VisiMisi } from "../../components/VisiMisi";
-import PilarKami from "../../components/PilarKami";
-import Location from "../../components/Location";
-import TeamComponent from "../../components/Team";
 import Footer from "../../components/FooterComponent";
 import ButtonChatus from "../../components/element/button/buttonChat";
-import { faqData } from "../../data/faqData";
 import { FaChevronRight } from "react-icons/fa6";
 
 const Faq = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
+  const [faqData, setFaqData] = useState([])
+  useEffect(()=> {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/faq`); 
+        const data = await response.json();
+        setFaqData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  })
 
   const toggleQuestion = (index) => {
     if (openQuestion === index) {

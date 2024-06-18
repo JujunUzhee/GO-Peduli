@@ -8,7 +8,7 @@ const Pengantaran = ({setPengantaran}) => {
       onChange={(e) => setPengantaran(e.target.value)}
       defaultValue="" 
     >
-      <option selected disabled>
+      <option value="" disabled>
        pengantaran
       </option>
 

@@ -1,6 +1,6 @@
 // src/pages/admin/AdminLogin.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import { FaFacebookF, FaGoogle, FaTiktok, FaUser } from "react-icons/fa";
 import { MdLock } from "react-icons/md";
@@ -22,7 +22,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('../image/login_image.png')] bg-cover bg-center">
-      <div className="flex bg-loginLight bg-opacity-95 rounded rounded-xl shadow-md w-full max-w-4xl overflow-hidden">
+      <div className="flex bg-loginLight bg-opacity-95  rounded-xl shadow-md w-full max-w-4xl overflow-hidden">
         <div className="w-1/2 bg-cover bg-center bg-[url('../image/caraousel1.png')]">
           <div className="p-8 ">
             <img
@@ -30,8 +30,8 @@ const AdminLogin = () => {
               alt="Logo"
               className="w-16 h-16 mb-4 "
             />
-            <h2 className="text-3xl font-bold mb-2 text-DarkGreen mt-16">
-              Donasi Pakaian Lebih Mudah Dengan Go Peduli
+            <h2 className="text-4xl text-center font-bold mb-2 text-DarkGreen mt-8 text-stroke-white">
+              Donasi Pakaian <br /> Lebih Mudah <br /> Dengan Go Peduli
             </h2>
           </div>
         </div>
@@ -50,7 +50,7 @@ const AdminLogin = () => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="block py-2.5 px-0 w-[350px] text-sm text-GreenLogin  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer ml-7"
+                  className="block py-2.5 px-0 w-[350px] text-md text-GreenLogin  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-green-600 peer ml-7"
                   placeholder=" "
                   required
                 />
@@ -70,7 +70,7 @@ const AdminLogin = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block py-2.5 px-0 w-[350px] text-sm text-GreenLogin  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer ml-7"
+                  className="block py-2.5 px-0 w-[350px] text-md text-GreenLogin  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer ml-7"
                   placeholder=" "
                   required
                 />
@@ -86,8 +86,8 @@ const AdminLogin = () => {
 
             <div className="ml-72 mb-6">
               <a
-                href="/forgot-password"
-                className="text-xs font-semibold text-gray-600 hover:text-gray-800"
+                href="#"
+                className="text-xs font-semibold text-DarkGreen hover:text-green-600"
               >
                 Forget Password?
               </a>
@@ -104,9 +104,9 @@ const AdminLogin = () => {
           <div className="text-center mt-4">
             <p className="text-sm text-GreenLogin font-semibold">
               Don`t have an account?
-              <a href="/sign-up" className="text-GreenLogin hover:underline font-bold ml-2">
+              <Link to="/admin/sign-up" className="text-GreenLogin hover:underline font-bold ml-2">
                 Sign Up
-              </a>
+              </Link>
             </p>
             <p className="text-sm  font-bold text-GreenLogin mt-8 mb-4">Login With Social Media</p>
             <div className="flex justify-center space-x-4 mt-2">

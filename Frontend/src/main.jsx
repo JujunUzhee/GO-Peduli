@@ -23,6 +23,7 @@ import AdminMitra from './pages/admin/adminMitra.jsx';
 import AdminChat from './pages/admin/adminChat.jsx';
 import Faq from './pages/user/Faq.jsx';
 import LaporanArticle from './pages/user/LaporanArticle.jsx';
+import AdminRegister from './pages/admin/adminRegister.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     element: <Berita />,
   },
   {
+    path: '/faq',
+    element: <Faq />,
+  },
+  {
     path: '/formulir-donatur',
     element: <FormulirDonatur />,
   },
@@ -61,6 +66,10 @@ const router = createBrowserRouter([
   {
     path: '/admin/login',
     element: <AdminLogin />,
+  },
+  {
+    path: '/admin/sign-up',
+    element: <AdminRegister />,
   },
   {
     path: '/admin/berita',

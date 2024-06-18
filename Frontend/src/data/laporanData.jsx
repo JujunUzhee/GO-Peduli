@@ -27,7 +27,7 @@ export const laporanData = [
     },
     {
       id: 2,
-      img: "/image/program1.png",
+      img: "/image/program2.jpg",
       date: "Sabtu, 27 April 2024",
       title: "Laporan Pertanggung Jawaban Donasi Pakaian di Panti Asuhan Tarbiyatul Yatim: Membawa Harapan dan Kebahagiaan",
       deskripsi: "Desa Laingpatehi dan Desa Pumpente tedampak erupsi Gunung Ruang paling parah",
@@ -53,7 +53,7 @@ export const laporanData = [
     },
     {
       id: 3,
-      img: "/image/program1.png",
+      img: "/image/program3.jpg",
       date: "Sabtu, 27 April 2024",
       title: "Laporan Pertanggung Jawaban Donasi Pakaian di Panti Asuhan Tarbiyatul Yatim: Membawa Harapan dan Kebahagiaan",
       deskripsi: "Desa Laingpatehi dan Desa Pumpente tedampak erupsi Gunung Ruang paling parah",

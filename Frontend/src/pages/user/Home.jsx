@@ -16,8 +16,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/home');
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/home`);
         const data = await response.json();
+        console.log("Fetched data:", data);
         setAllDonasi(data.donations);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -49,11 +50,11 @@ const Home = () => {
         </div>
         <div className="flex justify-center items-center mt-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <CardProgram limit={3}/>
+            <CardProgram limit={3} />
           </div>
         </div>
         <div className="mt-10 flex justify-end pr-4 sm:pr-6 lg:pr-8">
-         <Selengkapnya to="/program"/>
+         <Selengkapnya to="/berita"/>
         </div>
       </div>
       <div className=" mt-32 w-full ">

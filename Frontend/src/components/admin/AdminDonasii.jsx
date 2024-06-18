@@ -1,6 +1,98 @@
 import React from "react";
 
 const AdminDonasi = () => {
+  const [allDonasi, setAllDonasi] = useState([]);
+  const [selectedDonations, setSelectedDonations] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+  const [editDonation, setEditDonation] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/donasiku`
+      );
+      const data = await response.json();
+      setAllDonasi(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleDonasiSelection = (id) => {
+    const selectedIndex = selectedDonations.indexOf(id);
+    if (selectedIndex === -1) {
+      setSelectedDonations([...selectedDonations, id]);
+    } else {
+      const updatedSelection = [...selectedDonations];
+      updatedSelection.splice(selectedIndex, 1);
+      setSelectedDonations(updatedSelection);
+    }
+  };
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedDonations([]);
+    } else {
+      const allDonasiIds = allDonasi.map((donasi) => donasi.id);
+      setSelectedDonations(allDonasiIds);
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleDeleteDonations = async () => {
+    try {
+      const deleteRequests = selectedDonations.map((id) =>
+        fetch(`http://localhost:3000/donasiku/${id}`, {
+          method: "DELETE",
+        })
+      );
+
+      const responses = await Promise.all(deleteRequests);
+      const allSuccessful = responses.every((response) => response.ok);
+
+      if (allSuccessful) {
+        fetchData(); // Refresh data if deletion is successful
+        setSelectedDonations([]);
+        setSelectAll(false);
+        swal({
+          title: "Donasi Berhasil Dihapus!",
+          text: "You clicked the button!",
+          icon: "warning",
+          dangerMode: true,
+        }).then(() => {
+          window.location.reload();
+        });
+      } else {
+        console.error("Gagal menghapus beberapa donasi");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleEditButtonClick = () => {
+    if (selectedDonations.length === 1) {
+      const donationToEdit = allDonasi.find(
+        (donasi) => donasi.id === selectedDonations[0]
+      );
+      setEditDonation(donationToEdit);
+    } else {
+      swal({
+        title: "Pilih satu donasi untuk diedit",
+        icon: "warning",
+      });
+    }
+  };
+
+  const clearForm = () => {
+    setEditDonation(null);
+    setSelectedDonations([]);
+  };
+
   return (
     <>
       <main className="flex-grow p-6 bg-white rounded-xl ml-5 mt-4 h-full mr-5">
