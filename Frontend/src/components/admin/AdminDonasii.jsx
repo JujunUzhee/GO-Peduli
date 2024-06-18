@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const AdminDonasi = () => {
   return (
-   <>
-    <main className="flex-grow p-6 bg-white rounded-xl ml-5 mt-4 h-full mr-5">
+    <>
+      <main className="flex-grow p-6 bg-white rounded-xl ml-5 mt-4 h-full mr-5">
         <div className="flex justify-between mb-6">
           <div>
             <h1 className="text-xl font-semibold">Dashboard / Donasi</h1>
@@ -23,16 +23,23 @@ const AdminDonasi = () => {
                 <th className="py-2 px-4">Tanggal Akhir</th>
               </tr>
             </thead>
-            <tbody className='bg-white'>
+            <tbody className="bg-white">
               <tr>
                 <td className="py-2 px-4">Boksos Unnes</td>
                 <td className="py-2 px-4">Peduli Panti Asuhan Darul Falah</td>
-                <td className="py-2 px-4">Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah 52277</td>
+                <td className="py-2 px-4">
+                  Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah
+                  52277
+                </td>
                 <td className="py-2 px-4">Anak-anak, Remaja</td>
                 <td className="py-2 px-4">Tidak Tersedia Pickup</td>
                 <td className="py-2 px-4">boksounnes@gmail.com</td>
                 <td className="py-2 px-4">
-                  <img src="../image/admin.jpg" alt="Admin" className='rounded-2xl shadow-lg border border-slate-200 w-24'/>
+                  <img
+                    src="../image/admin.jpg"
+                    alt="Admin"
+                    className="rounded-2xl shadow-lg border border-slate-200 w-24"
+                  />
                 </td>
                 <td className="py-2 px-4">12/12/2024</td>
               </tr>
@@ -40,13 +47,15 @@ const AdminDonasi = () => {
           </table>
           <div className="flex items-center ml-4 justify-between">
             <div>
-            <input type="checkbox" id="select-all" className="rounded" />
-            <label htmlFor="select-all" className="ml-2 text-sm font-medium">Pilih Semua</label>
+              <input type="checkbox" id="select-all" className="rounded" />
+              <label htmlFor="select-all" className="ml-2 text-sm font-medium">
+                Pilih Semua
+              </label>
             </div>
-        
+
             <button className="border border-gray-300 text-white px-4 py-2 rounded-md bg-Green hover:bg-green-600 mr-4 font-bold">
-            Terapkan
-          </button>
+              Terapkan
+            </button>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
             <h2 className="text-lg font-semibold mb-4">Buat Baru</h2>
@@ -102,7 +111,9 @@ const AdminDonasi = () => {
                   </select>
                 </div>
                 <div className="flex items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer">
-                  <span className="text-sm text-gray-500">Mohon Unggah dokumen file jpg, png, svg</span>
+                  <span className="text-sm text-gray-500">
+                    Mohon Unggah dokumen file jpg, png, svg
+                  </span>
                 </div>
               </div>
             </div>
@@ -112,8 +123,8 @@ const AdminDonasi = () => {
           </div>
         </div>
       </main>
-   </>
-  )
-}
+    </>
+  );
+};
 
-export default AdminDonasi
+export default AdminDonasi;
