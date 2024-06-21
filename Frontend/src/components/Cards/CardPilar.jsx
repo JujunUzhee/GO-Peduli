@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiFlowerFill } from "react-icons/ri";
-import { pilarData } from "../../data/pilarData";
 
 const CardPilar = () => {
+  const [pilarData, setPilarData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/pilar`)
+        const data = await response.json()
+        setPilarData(data)
+      }
+      catch(e){
+        console.error("Error fetching data:", e);
+      }
+    }
+
+    fetchData()
+  }, [])
+  
+
   return (
     <>
       {pilarData.map((data, index) => {

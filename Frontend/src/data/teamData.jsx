@@ -1,33 +1,33 @@
 
 export const teamData = [
     {
-        img : "/image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "/image/Ralph.png",
+        name : "Ralph Edwards",
+        position : "CEO",
     },
     {
-        img : "image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "image/Jack.png",
+        name : "Jack Edwards",
+        position : "CTO",
     },
     {
-        img : "image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "image/Nicole.png",
+        name : "Nicole Edwards",
+        position : "Web Development",
     },
     {
-        img : "image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "image/Ayu.png",
+        name : "Ayu Edwards",
+        position : "Sales Market",
     },
     {
-        img : "image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "image/Putri.png",
+        name : "Putri Edwards",
+        position : "Graphic Designer",
     },
     {
-        img : "image/about.png",
-        name : "Udin Senudin",
-        position : "Founder",
+        img : "image/Mustika.png",
+        name : "Mustika Edwards",
+        position : "Humas",
     },
 ]

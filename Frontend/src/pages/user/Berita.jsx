@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import PublikasiComponent from "../../components/PublikasiComponent";
 import ButtonChatus from "../../components/element/button/buttonChat";
@@ -6,20 +6,34 @@ import Footer from "../../components/FooterComponent";
 import ScrollToTop from "../../components/scrollTop";
 import CardInputBerita from "../../components/Cards/CardInputBerita";
 import BeritaComponent from "../../components/BeritaComponent";
-import { beritaData } from "../../data/beritaData";
 
 const Berita = () => {
   const [choose, setChoose] = useState("Berita");
   const [artikel, setArtikel] = useState("");
   const [filterBerita, setFilterBerita] = useState([])
+  // const [allBerita ,setAllBerita] = useState([])
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:3000/berita'); 
+  //       const data = await response.json();
+  //       setAllBerita(data);
+  //       setFilterBerita(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-  const onSearch = () => {
-    const filterBeritaData = beritaData.filter((data) => {
-      data.title.toLowerCase().includes(artikel.toLowerCase());
-    });
-    setFilterBerita(filterBeritaData)
-  };
+  //   fetchData();
+  // }, []);
+
+  // const onSearch = () => {
+  //   const filterBeritaData = allBerita.filter((data) => {
+  //     data.title.toLowerCase().includes(artikel.toLowerCase());
+  //   });
+  //   setFilterBerita(filterBeritaData)
+  // };
   return (
     <>
       <ScrollToTop />
@@ -37,7 +51,7 @@ const Berita = () => {
           <CardInputBerita
             setChoose={setChoose}
             setArtikel={setArtikel}
-            onSearch={onSearch}
+            // onSearch={onSearch}
           />
         </div>
         <div className="w-full">

@@ -10,10 +10,16 @@ const FullArticle = () => {
   const { id } = useParams();
   const [beritaData, setBeritaData] = useState([])
 
+  const formatTanggal = (tanggal) => {
+    const date = new Date(tanggal);
+    const formattedDate = date.toLocaleDateString('id-ID', { timeZone: 'UTC' });
+    return formattedDate
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await fetch('http://localhost:3000/berita')
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/berita`)
         const data = await response.json()
         setBeritaData(data)
       }
@@ -45,7 +51,7 @@ const FullArticle = () => {
             </div>
             <div className="flex items-center gap-2">
               <FaCalendar />
-              <span>{article.content.date}</span>
+              <span>{formatTanggal(article.content.date)}</span>
             </div>
           </div>
           <div className="flex justify-center pb-5 gap-4 m-6"></div>
