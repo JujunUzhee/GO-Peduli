@@ -22,7 +22,7 @@ const postFormulirDonasi = async (req, res) => {
        await query(sql, [ pilihLokasi, kategori, nama, nomor, email, pengantaran, alamat]);
        return res.status(201).json({
         "status": "success",
-        "message": `Berhasil mendaftarkan mitra dengan nama alamat email: ${email}`,
+        "message": `Berhasil mendaftarkan dengan nama alamat email: ${email}`,
       });
     } catch (error) {
         console.log("Error while processing data:", error);

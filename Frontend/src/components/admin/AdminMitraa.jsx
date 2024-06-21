@@ -12,166 +12,166 @@ const AdminMitraa = () => {
           </div>
         </div>
         <div>
-          <div class="gap-[19px] w-full flex relative max-w-[932px] box-border items-center flex-col justify-center">
-            <div class="gap-[45px] w-full flex relative max-w-[932px] box-border items-center justify-center">
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[220px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+          <div className="gap-[19px] w-full flex relative max-w-[932px] box-border items-center flex-col justify-center">
+            <div className="gap-[45px] w-full flex relative max-w-[932px] box-border items-center justify-center">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[220px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo salam.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[98px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[98px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Total Mitra
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       100
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[236px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[236px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo love.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[114px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[114px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Total Donasi
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       200
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[247px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[247px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo orang.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[125px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[125px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Total Donatur
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       1000
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="gap-[8px] w-full flex relative max-w-[932px] box-border items-start justify-start">
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[267px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+            <div className="gap-[8px] w-full flex relative max-w-[932px] box-border items-start justify-start">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[267px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo love.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[145px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[145px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Donasi berjalan
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       150
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[255px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[255px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo love.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[133px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[133px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Donasi Selesai
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       50
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[189px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[189px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo salam.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[67px] box-border items-center flex-col justify-start h-[80px]">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[20px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[67px] box-border items-center flex-col justify-start h-[80px]">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[20px] mb-0 tracking-[0px] normal-case">
                       Pick Up
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       50
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="gap-[8px] w-full flex p-[24px] relative max-w-[197px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
-                <div class="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
+              <div className="gap-[8px] w-full flex p-[24px] relative max-w-[197px] [border-top:1px_solid_#64b479] [box-shadow:0px_0px_12px_0px_rgba(0,0,0,0.16)] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#f0f8f2]">
+                <div className="gap-[26px] w-full flex p-[8px] relative max-w-[66px] box-border items-start justify-start bg-[#f0f8f2]">
                   <img
                     src="/image/logo salam.png"
                     alt="instance"
                     width="50"
                     height="50"
-                    class="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
+                    className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
                   />
                 </div>
-                <div class="w-full flex relative max-w-[75px] box-border items-center flex-col justify-start">
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                <div className="w-full flex relative max-w-[75px] box-border items-center flex-col justify-start">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#919191] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       Drop Off
                     </p>
                   </div>
-                  <div class="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
-                    <p class="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
+                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
+                    <p className="text-[#222831] text-[18px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
                       150
                     </p>
                   </div>
@@ -218,87 +218,81 @@ const AdminMitraa = () => {
                 Foto
               </p>
             </div>
-            <div class="flex-[1]">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-[1]">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Judul Donasi
               </p>
             </div>
-            <div class="flex-1">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-1">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Mitra
               </p>
             </div>
-            <div class="flex-1">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-1">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Lokasi
               </p>
             </div>
-            <div class="flex-1">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-1">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Kategori
               </p>
             </div>
-            <div class="flex-1">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-1">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Pengiriman
               </p>
             </div>
-            <div class="flex-1">
-              <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+            <div className="flex-1">
+              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                 Donatur
               </p>
             </div>
           </div>
         </div>
         {/*  */}
-        <table class="table w-full">
+        <table className="table w-full">
           <tbody>
             <Link to="/admin/Data">
-              <tr
-                class="cursor-pointer hover:bg-gray-200"
-                onclick="openModal()"
-              >
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+              <tr className="cursor-pointer hover:bg-gray-200">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   <img src="/image/logo rumah.png" alt="Logo Rumah" />
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Baksos Unnes
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah
                   52272
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Anak-anak, Remaja
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Tidak Tersedia
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   50
                 </td>
               </tr>
-              <tr
-                class="cursor-pointer hover:bg-gray-200"
-                onclick="openModal()"
-              >
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+              <tr className="cursor-pointer hover:bg-gray-200">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   <img src="/image/logo rumah.png" alt="Logo Rumah" />
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Baksos Unnes
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah
                   52272
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Anak-anak, Remaja
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   Tidak Tersedia
                 </td>
-                <td class="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
+                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
                   50
                 </td>
               </tr>

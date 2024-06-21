@@ -1,71 +1,88 @@
 import { query } from "../database/db.js";
 
 const getBerita = async (req, res) => {
-  const sql = `
-        SELECT 
-            berita.id AS berita_id,
-            berita.img,
-            berita.date,
-            berita.title,
-            berita.descripsi,
-            content.author,
-            content.date AS content_date,
-            content.image AS content_image,
-            paragraphs.paragraph,
-            subheadings.subheading
-        FROM 
-            berita
-        LEFT JOIN 
-            paragraphs ON berita.id = paragraphs.berita_id
-        LEFT JOIN 
-            subheadings ON berita.id = subheadings.berita_id
-        LEFT JOIN 
-            content ON berita.id = content.berita_id;
-    `;
-  try {
-    const results = await query(sql);
-
-    const news = results.reduce((acc, row) => {
-      const berita_id = row.berita_id;
-
-      if (!acc[berita_id]) {
-        acc[berita_id] = {
-          id: berita_id,
-          img: row.img,
-          date: row.date,
-          title: row.title,
-          descripsi: row.descripsi,
-          content: {
-            author: row.author,
-            date: row.content_date,
-            image: row.content_image,
-            paragraphs: [],
-            subheadings: [],
-          },
-        };
-      }
-
-      if (
-        row.paragraph &&
-        !acc[berita_id].content.paragraphs.includes(row.paragraph)
-      ) {
-        acc[berita_id].content.paragraphs.push(row.paragraph);
-      }
-
-      if (
-        row.subheading &&
-        !acc[berita_id].content.subheadings.includes(row.subheading)
-      ) {
-        acc[berita_id].content.subheadings.push(row.subheading);
-      }
-
-      return acc;
-    }, {});
-
-    res.status(200).json(Object.values(news));
+  const sql = "SELECT * FROM berita";
+    try {
+        const berita = await query(sql);
+        berita.forEach(data => {
+          data.img = `/image/${data.img}`; 
+          });
+        res.status(200).json(berita);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch data" });
   }
 };
 
-export { getBerita };
+const getBeritaById = async (req, res) => {
+  const { id } = req.params;
+  const sql = "SELECT * FROM berita WHERE id = ?";
+  try {
+    const berita = await query(sql, [id]);
+    if (berita.length > 0) {
+      berita[0].img = `/image/${berita[0].img}`; // Ubah path gambar sesuai dengan lokasi penyimpanan Anda
+      res.status(200).json(berita[0]);
+    } else {
+      res.status(404).json({ message: "Berita tidak ditemukan" });
+    }
+  } catch (error) {
+    console.error("Gagal mengambil berita:", error);
+    res.status(500).json({ error: "Gagal mengambil berita" });
+  }
+};
+
+const postBerita = async (req, res) => {
+  try {
+    const { date, title, descripsi, author } = req.body;
+    const img = req.file ? req.file.filename : null;
+    if (!img || !date || !title || !descripsi || !author) {
+      return res.status(400).json({ error: "Semua kolom harus diisi" });
+    }
+
+    const tambahBeritaQuery = `INSERT INTO berita (img, date, title, descripsi, author) VALUES (?, ?, ?, ?, ?)`;
+    await query(tambahBeritaQuery, [img, date, title, descripsi, author]);
+
+    res.status(201).json({ message: "Berita berhasil ditambahkan" });
+  } catch (error) {
+    console.error("Gagal menambahkan berita:", error);
+    res.status(500).json({ error: "Gagal menambahkan berita" });
+  }
+};
+
+const updateBerita = async (req, res) => {
+  const { id } = req.params;
+  const { date, title, descripsi, author } = req.body;
+  const img = req.file ? req.file.filename : null;
+
+  try {
+    const existingBerita = await query("SELECT * FROM berita WHERE id = ?", [id]);
+    if (existingBerita.length === 0) {
+      return res.status(404).json({ message: "Berita tidak ditemukan" });
+    }
+
+    const updateQuery = `UPDATE berita SET img = COALESCE(?, img), date = ?, title = ?, descripsi = ?, author = ? WHERE id = ?`;
+    await query(updateQuery, [img, date, title, descripsi, author, id]);
+
+    res.status(200).json({ message: "Berita berhasil diperbarui" });
+  } catch (error) {
+    console.error("Gagal memperbarui berita:", error);
+    res.status(500).json({ error: "Gagal memperbarui berita" });
+  }
+};
+
+const deleteBerita = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const existingBerita = await query("SELECT * FROM berita WHERE id = ?", [id]);
+    if (existingBerita.length === 0) {
+      return res.status(404).json({ message: "Berita tidak ditemukan" });
+    }
+
+    await query("DELETE FROM berita WHERE id = ?", [id]);
+    res.status(200).json({ message: "Berita berhasil dihapus" });
+  } catch (error) {
+    console.error("Gagal menghapus berita:", error);
+    res.status(500).json({ error: "Gagal menghapus berita" });
+  }
+};
+
+export { getBerita,getBeritaById,postBerita,updateBerita,deleteBerita  };

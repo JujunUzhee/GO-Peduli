@@ -134,61 +134,61 @@ const MitraData = () => {
             </button>
           </div>
           {/*  */}
-          <div class="mt-6">
-            <div class="w-full flex gap-4 max-w-[1004px] items-start justify-between ">
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+          <div className="mt-6">
+            <div className="w-full flex gap-4 max-w-[1004px] items-start justify-between ">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Nama
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   Naratama Abinaya
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Lokasi
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   Rembang
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Kategori
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   Anak-Anak
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Pengiriman
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   -
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Tanggal
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   01-12-2024
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Email
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   Naraabi@gmail.com
                 </p>
               </div>
-              <div class="flex-1">
-                <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
+              <div className="flex-1">
+                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
                   Alamat
                 </p>
-                <p class="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
+                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
                   Desa Sluke Rt 00 Rw 00 Kecamatan Sluke Kabupaten Rembang Jawa
                   Tengah
                 </p>

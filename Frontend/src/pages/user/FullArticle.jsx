@@ -47,27 +47,31 @@ const FullArticle = () => {
           <div className="flex justify-center items-center gap-16 mt-2">
             <div className="flex items-center gap-2">
               <FaUser />
-              <span>{article.content.author}</span>
+              <span>{article.author}</span>
             </div>
             <div className="flex items-center gap-2">
               <FaCalendar />
-              <span>{formatTanggal(article.content.date)}</span>
+              <span>{formatTanggal(article.date)}</span>
             </div>
           </div>
           <div className="flex justify-center pb-5 gap-4 m-6"></div>
         </div>
         <div className="flex justify-center">
-          <img src={article.content.image} alt="Article" className="w-full" />
+          <img src={article.img} alt="Article" className="w-full" />
         </div>
-        <div className="mb-24">
-          {article.content.subheadings.map((subheading, index) => (
-            <div key={index}>
-              <h2 className="font-bold py-3">{subheading}</h2>
-              <p className="mb-4">{article.content.paragraphs[index]}</p>
-            </div>
-          ))}
+        <div className="mb-24 p-6 bg-white shadow-lg rounded-lg">
+    <h2 className="text-2xl font-bold text-gray-800 mb-4 hover:text-Green ">
+        Deskripsi Berita
+    </h2>
+    <p className="text-lg text-gray-700 leading-relaxed text-justify">
+        {article.descripsi}
+    </p>
+</div>
+
+
+        
         </div>
-      </div>
+
       <ButtonChatus />
       <Footer />
     </>
