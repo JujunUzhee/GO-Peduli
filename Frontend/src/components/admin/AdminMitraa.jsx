@@ -211,7 +211,7 @@ const AdminMitraa = () => {
           </button>
         </div>
         {/*  */}
-        <div class="mt-6">
+        <div className="mt-6">
           <div class="w-full flex gap-4 max-w-[1004px] items-start justify-between ">
             <div class="flex-1">
               <p class="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
