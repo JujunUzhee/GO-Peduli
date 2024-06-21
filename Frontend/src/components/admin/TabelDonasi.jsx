@@ -12,7 +12,7 @@ const TabelDonasi = ({ handleDonasiSelection, selectedDonations, selectAll }) =>
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/donasiku");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/donasiku`);
         const data = await response.json();
         setAllDonasi(data);
       } catch (error) {
@@ -24,8 +24,8 @@ const TabelDonasi = ({ handleDonasiSelection, selectedDonations, selectAll }) =>
   }, []);
 
   return (
-    <>
-      <table className="min-w-full">
+    <div className="overflow-x-auto">
+      <table className="min-w-full table table-xs table-pin-rows table-pin-cols">
         <thead>
           <tr>
             <th className="py-2 px-4">Mitra</th>
@@ -39,7 +39,7 @@ const TabelDonasi = ({ handleDonasiSelection, selectedDonations, selectAll }) =>
             <th className="py-2 px-4">Pilih</th>
           </tr>
         </thead>
-        <tbody className="bg-white">
+        <tbody className="bg-white h-64 overflow-y-auto">
           {allDonasi.map((data, index) => (
             <tr key={index}>
               <td className="py-2 px-4">{data.mitra}</td>
@@ -50,7 +50,7 @@ const TabelDonasi = ({ handleDonasiSelection, selectedDonations, selectAll }) =>
               <td className="py-2 px-4">{data.email}</td>
               <td className="py-2 px-4">
                 <img
-                  src={`http://localhost:3000${data.image}`}
+                  src={`${import.meta.env.VITE_BACKEND_URL}${data.image}`}
                   alt="Gambar Donasi"
                   className="rounded-2xl shadow-lg border border-slate-200 w-32 h-24"
                 />
@@ -68,7 +68,7 @@ const TabelDonasi = ({ handleDonasiSelection, selectedDonations, selectAll }) =>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

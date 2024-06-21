@@ -14,9 +14,9 @@ const CardBerita = ({ data, limit }) => {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/home`);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/berita`);
         const data = await response.json()
-        setBeritaData(data.news)
+        setBeritaData(data)
       }
       catch(e){
         console.error("Error fetching data:", e);
@@ -25,6 +25,14 @@ const CardBerita = ({ data, limit }) => {
 
     fetchData()
   }, [])
+
+  const deskripsiText = (text, wordLimit) => {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+  };
   return (
     <>
       {beritaData.slice(0, limit).map((data) => (
@@ -42,7 +50,7 @@ const CardBerita = ({ data, limit }) => {
               <p className="text-sm font-semibold ml-4 mt-2">{formatTanggal(data.date)}</p>
             </div>
             <div className="font-bold text-md mb-2 mt-4 h-14">{data.title}</div>
-            <p className=" text-sm h-16">{data.descripsi}</p>
+            <p className=" text-sm h-16">{deskripsiText(data.descripsi, 15)}</p>
             <ButtonRead id={data.id}/>
           </div>
         </div>

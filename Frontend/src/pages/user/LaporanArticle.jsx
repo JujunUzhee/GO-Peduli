@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { laporanData } from '../../data/laporanData';
+
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/FooterComponent';
 import ButtonChatus from '../../components/element/button/buttonChat';
@@ -8,11 +8,31 @@ import ScrollToTop from '../../components/scrollTop';
 import { FaUser, FaCalendar } from 'react-icons/fa';
 
 const LaporanArticle = () => {
+  const [laporanData, setLaporanData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/program`); 
+        const data = await response.json();
+        setLaporanData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const { id } = useParams();
   const article = laporanData.find((article) => article.id === parseInt(id));
 
   if (!article) {
     return <div>Laporan Tidak Ditemukan</div>;
+  }
+  const formatTanggal = (tanggal) => {
+    const date = new Date(tanggal);
+    const formattedDate = date.toLocaleDateString('id-ID', { timeZone: 'UTC' });
+    return formattedDate
   }
 
   return (
@@ -29,7 +49,7 @@ const LaporanArticle = () => {
             </div>
             <div className="flex items-center gap-2">
               <FaCalendar />
-              <span>{article.date}</span>
+              <span>{formatTanggal(article.date)}</span>
             </div>
           </div>
           <div className="flex justify-center pb-5 gap-4 m-6"></div>
