@@ -16,7 +16,9 @@ const AdminDonasi = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}donasiku`);
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}donasiku`
+      );
       const data = await response.json();
       setAllDonasi(data);
     } catch (error) {
@@ -78,7 +80,9 @@ const AdminDonasi = () => {
 
   const handleEditButtonClick = () => {
     if (selectedDonations.length === 1) {
-      const donationToEdit = allDonasi.find((donasi) => donasi.id === selectedDonations[0]);
+      const donationToEdit = allDonasi.find(
+        (donasi) => donasi.id === selectedDonations[0]
+      );
       setEditDonation(donationToEdit);
     } else {
       swal({
