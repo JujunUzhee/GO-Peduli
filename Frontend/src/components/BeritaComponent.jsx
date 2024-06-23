@@ -11,7 +11,7 @@ const BeritaComponent = ({news, otherNews,data}) => {
           </div>
           <h2 className="my-4 text-3xl font-bold mt-20 mb-8 ml-3"> {otherNews}</h2>
           <div className="grid grid-cols-3 gap-12 mx-auto mb-16">
-            <CardBerita data={data} limit={6}/>
+            <CardBerita data={data} />
           </div>
         </div>
     </>
