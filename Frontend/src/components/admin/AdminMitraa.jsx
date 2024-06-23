@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 
 const AdminMitraa = () => {
+  const [donasiku, setDonasiku] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/formulir-donasi`
+        );
+        const data = await response.json();
+        setDonasiku(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const formatTanggal = (tanggal) => {
+    const date = new Date(tanggal);
+    const formattedDate = date.toLocaleDateString("id-ID", { timeZone: "UTC" });
+    return formattedDate;
+  };
+
   return (
     <>
       <main className="flex-grow p-6 bg-white rounded-xl ml-5 mt-4 h-full mr-5">
@@ -211,98 +235,37 @@ const AdminMitraa = () => {
           </button>
         </div>
         {/*  */}
-        <div className="mt-6">
-          <div className="w-full flex gap-4 max-w-[1004px] items-start justify-between ">
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Foto
-              </p>
-            </div>
-            <div className="flex-[1]">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Judul Donasi
-              </p>
-            </div>
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Mitra
-              </p>
-            </div>
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Lokasi
-              </p>
-            </div>
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Kategori
-              </p>
-            </div>
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Pengiriman
-              </p>
-            </div>
-            <div className="flex-1">
-              <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                Donatur
-              </p>
-            </div>
-          </div>
-        </div>
-        {/*  */}
-        <table className="table w-full">
-          <tbody>
-            <Link to="/admin/Data">
-              <tr
-                className="cursor-pointer hover:bg-gray-200"
-              >
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  <img src="/image/logo rumah.png" alt="Logo Rumah" />
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Baksos Unnes
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah
-                  52272
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Anak-anak, Remaja
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Tidak Tersedia
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  50
-                </td>
-              </tr>
-              <tr
-                className="cursor-pointer hover:bg-gray-200"
-              >
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  <img src="/image/logo rumah.png" alt="Logo Rumah" />
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Baksos Unnes
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Badeg, Sridadi, Kec. Rembang, Kabupaten Rembang, Jawa Tengah
-                  52272
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Anak-anak, Remaja
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  Tidak Tersedia
-                </td>
-                <td className="border-b border-gray-200 px-6 py-4 text-sm leading-5 text-gray-800">
-                  50
-                </td>
-              </tr>
-            </Link>
-          </tbody>
-        </table>
+
+        <div className="overflow-x-auto rounded-lg border border-gray-200 mt-6 w-full">
+  <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead className="ltr:text-left rtl:text-right text-Green">
+      <tr>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Lokasi</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Kategori</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Nama</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Nomor</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Email</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Pengantaran</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">Alamat</th>
+      </tr>
+    </thead>
+    <tbody className="divide-y divide-gray-200 ">
+      {donasiku.map((data, id) => (
+        <tr key={id} >
+          <Link to="/admin/Data" className="contents">
+            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 " >{data.pilihLokasi}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.kategori}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.nama}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.nomor}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.email}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.pengantaran}</td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">{data.alamat}</td>
+          </Link>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
       </main>
     </>
   );

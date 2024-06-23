@@ -3,7 +3,7 @@ import Select from "react-select";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 const FormDonasi = ({ editDonation, clearForm }) => {
   const [title, setTitle] = useState("");
@@ -32,8 +32,6 @@ const FormDonasi = ({ editDonation, clearForm }) => {
       setImage(file);
     }
   };
-  
-  
 
   useEffect(() => {
     if (editDonation) {
@@ -158,10 +156,7 @@ const FormDonasi = ({ editDonation, clearForm }) => {
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
           />
           <div className="relative">
-            <label
-              htmlFor="pengantaran"
-              className="block mb-4 ml-1 font-bold"
-            >
+            <label htmlFor="pengantaran" className="block mb-4 ml-1 font-bold">
               Pengantaran
             </label>
             <select
@@ -175,7 +170,9 @@ const FormDonasi = ({ editDonation, clearForm }) => {
                 Pengantaran
               </option>
               <option value="Tersedia Layanan Pick Up">Pick Up</option>
-              <option value="Tidak Tersedia Layanan Pick UP">Ambil Sendiri</option>
+              <option value="Tidak Tersedia Layanan Pick UP">
+                Ambil Sendiri
+              </option>
             </select>
           </div>
           <div className="relative">
@@ -244,32 +241,24 @@ const FormDonasi = ({ editDonation, clearForm }) => {
               htmlFor="file-input"
               className="cursor-pointer flex flex-col items-center justify-center w-full h-full"
             >
-             {image ? (
-  <img
-    src={typeof image === 'string' ? image : URL.createObjectURL(image)}
-    alt="Uploaded"
-    className="h-full w-full object-cover rounded-lg"
-  />
-) : (
-  <div className="flex flex-col items-center justify-center">
-    <svg
-      className="w-8 h-8 text-gray-500"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 7a1 1 0 011 1v1h4v-1a1 1 0 112 0v1a1 1 0 01-1 1H8a1 1 0 01-1-1v-1a1 1 0 011-1zm0-4a1 1 0 011 1v1H5V7a1 1 0 011-1zm4 0a1 1 0 011 1v1h-2V7a1 1 0 011-1z"
-        clipRule="evenodd"
-      />
-    </svg>
-    <span className="text-sm text-gray-500">
-      Mohon Unggah dalam file .jpg, .png, .svg
-    </span>
-  </div>
-)}
-
+              {image ? (
+                <img
+                  src={
+                    typeof image === "string"
+                      ? image
+                      : URL.createObjectURL(image)
+                  }
+                  alt="Uploaded"
+                  className="h-full w-full object-cover rounded-lg"
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center">
+                  <img src="../image/upload.png" alt="" className="w-12" />
+                  <span className="text-sm text-gray-500">
+                    Mohon Unggah dalam file .jpg, .png, .svg
+                  </span>
+                </div>
+              )}
             </label>
           </div>
         </div>

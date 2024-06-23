@@ -3,21 +3,20 @@ import axios from "axios";
 import { CiSearch } from "react-icons/ci";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { AiOutlinePicture } from "react-icons/ai";
-import { IoVideocam } from "react-icons/io5";
-import { MdFileUpload } from "react-icons/md";
+import swal from "sweetalert";
 
 const AdminBeritaa = () => {
   const [selectedButton, setSelectedButton] = useState("Semua");
+  const [title, setTitle] = useState("");
+  const [mitra, setMitra] = useState("");
+  const [date, setDate] = useState("");
+  const [author, setAuthor] = useState("");
+  const [kategori, setKategori] = useState("");
+  const [descripsi, setDescripsi] = useState("");
+  const [img, setImg] = useState("");
+
+  const [editBerita, setEditBerita] = useState(null);
   const [beritaList, setBeritaList] = useState([]);
-  const [newBerita, setNewBerita] = useState({
-    title: "",
-    mitra: "",
-    date: "",
-    kategori: "",
-    descripsi: "",
-    img: null,
-  });
 
   useEffect(() => {
     fetchBerita();
@@ -25,7 +24,9 @@ const AdminBeritaa = () => {
 
   const fetchBerita = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/berita`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/berita`
+      );
       setBeritaList(response.data);
     } catch (error) {
       console.error("Failed to fetch berita", error);
@@ -34,28 +35,29 @@ const AdminBeritaa = () => {
 
   const formatTanggal = (tanggal) => {
     const date = new Date(tanggal);
-    const formattedDate = date.toLocaleDateString('id-ID', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: 'UTC',
+    return date.toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
     });
-    return formattedDate;
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewBerita((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (name === "title") setTitle(value);
+    else if (name === "mitra") setMitra(value);
+    else if (name === "date") setDate(value);
+    else if (name === "kategori") setKategori(value);
+    else if (name === "descripsi") setDescripsi(value);
+    else if (name === "author") setAuthor(value);
   };
 
   const handleFileChange = (e) => {
-    setNewBerita((prev) => ({
-      ...prev,
-      img: e.target.files[0],
-    }));
+    const file = e.target.files[0];
+    if (file) {
+      setImg(file); // Simpan file itu sendiri
+    }
   };
 
   const handleButtonClick = (buttonName) => {
@@ -70,217 +72,334 @@ const AdminBeritaa = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      !title ||
+      !mitra ||
+      !date ||
+      !kategori ||
+      !descripsi ||
+      !img ||
+      !author
+    ) {
+      console.log("Semua kolom harus diisi!");
+      return;
+    }
+
     const formData = new FormData();
-    Object.keys(newBerita).forEach((key) => {
-      formData.append(key, newBerita[key]);
-    });
+    formData.append("title", title);
+    formData.append("mitra", mitra);
+    formData.append("date", date);
+    formData.append("kategori", kategori);
+    formData.append("descripsi", descripsi);
+    formData.append("img", img);
+    formData.append("author", author);
 
     try {
-      await axios.post("/api/berita", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      fetchBerita(); // Refresh the list
+      let response;
+      if (editBerita) {
+        response = await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/berita/${editBerita.id}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        swal({
+          title: "Berita Berhasil Diperbarui!",
+          text: "Berita berhasil diperbarui.",
+          icon: "success",
+          button: "OK",
+        }).then(() => {
+          fetchBerita(); // Refresh the list
+          clearForm();
+        });
+      } else {
+        response = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/berita`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        swal({
+          title: "Berita Berhasil Ditambahkan!",
+          text: "Berita berhasil ditambahkan.",
+          icon: "success",
+          button: "OK",
+        }).then(() => {
+          fetchBerita(); // Refresh the list
+          clearForm();
+        });
+      }
+
+      console.log("Berita berhasil disimpan:", response.data);
     } catch (error) {
-      console.error("Failed to add berita", error);
+      console.error("Gagal menyimpan berita:", error);
+      swal({
+        title: "Gagal menyimpan berita!",
+        text: "Terjadi kesalahan saat menyimpan berita.",
+        icon: "error",
+        button: "OK",
+      });
     }
   };
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/berita/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/berita/${id}`);
       fetchBerita(); // Refresh the list
     } catch (error) {
       console.error("Failed to delete berita", error);
     }
   };
 
+  const handleEdit = (berita) => {
+    setEditBerita(berita);
+    setTitle(berita.title);
+    setMitra(berita.mitra);
+    setDate(berita.date);
+    setKategori(berita.kategori);
+    setAuthor(berita.author);
+    setDescripsi(berita.descripsi);
+    setImg(berita.img); // Asumsi URL gambar disimpan di berita.img
+  };
+
+  const clearForm = () => {
+    setTitle("");
+    setMitra("");
+    setDate("");
+    setKategori("");
+    setDescripsi("");
+    setImg("");
+    setAuthor("");
+    setEditBerita(null);
+  };
   return (
-    <>
-      <main className="flex-grow p-6 bg-white rounded-xl ml-4 mt-4 h-full mr-5">
-        <div className="flex justify-between mb-6">
-          <div>
-            <h1 className="text-xl font-semibold">Dashboard / Berita</h1>
-          </div>
+    <main className="flex-grow p-6 bg-white rounded-xl ml-4 mt-4 h-full mr-5">
+      <div className="flex justify-between mb-6">
+        <div>
+          <h1 className="text-xl font-semibold">Dashboard / Berita</h1>
+        </div>
+      </div>
+
+      <div className="flex items-center ml-4 justify-between">
+        <div>
+          <p className="text-[#222831] text-[18px] font-semibold leading-[40px]">
+            Berita dan Publikasi
+          </p>
         </div>
 
-        <div className="flex items-center ml-4 justify-between">
-          <div>
-            <p className="text-[#222831] text-[18px] font-semibold leading-[40px]">
-              Berita dan Publikasi
-            </p>
-          </div>
-
-          <div className="flex items-center border rounded-3xl px-2 py-2 bg-white text-black mr-6 w-80">
-            <CiSearch className="mr-2" size={20} />
-            <input
-              type="text"
-              placeholder="Search here"
-              className="outline-none bg-transparent w-full"
-            />
-          </div>
+        <div className="flex items-center border rounded-3xl px-2 py-2 bg-white text-black mr-6 w-80">
+          <CiSearch className="mr-2" size={20} />
+          <input
+            type="text"
+            placeholder="Search here"
+            className="outline-none bg-transparent w-full"
+          />
         </div>
+      </div>
 
-        <div className="flex items-center justify-start space-x-2 w-full mt-2 ml-4">
-          <button
-            className={getButtonClass("Semua")}
-            onClick={() => handleButtonClick("Semua")}
-          >
-            Semua
-          </button>
-          <button
-            className={getButtonClass("Berita")}
-            onClick={() => handleButtonClick("Berita")}
-          >
-            Berita
-          </button>
-          <button
-            className={getButtonClass("Publikasi")}
-            onClick={() => handleButtonClick("Publikasi")}
-          >
-            Publikasi
-          </button>
-          <button
-            className={getButtonClass("FAQ")}
-            onClick={() => handleButtonClick("FAQ")}
-          >
-            F&Q
-          </button>
-        </div>
+      <div className="flex items-center justify-start space-x-2 w-full mt-2 ml-4">
+        <button
+          className={getButtonClass("Semua")}
+          onClick={() => handleButtonClick("Semua")}
+        >
+          Semua
+        </button>
+        <button
+          className={getButtonClass("Berita")}
+          onClick={() => handleButtonClick("Berita")}
+        >
+          Berita
+        </button>
+        <button
+          className={getButtonClass("Publikasi")}
+          onClick={() => handleButtonClick("Publikasi")}
+        >
+          Publikasi
+        </button>
+        <button
+          className={getButtonClass("FAQ")}
+          onClick={() => handleButtonClick("FAQ")}
+        >
+          F&Q
+        </button>
+      </div>
 
-        <div className="overflow-x-auto">
-          <table className="table table-xs table-pin-rows table-pin-cols mt-10">
-            <thead >
-              <tr>
-                <td className="px-4">Judul</td>
-                <td className="px-4">Tanggal Terbit</td>
-                <td className="px-4">Kategori</td>
-                <td className="px-4">Penulis</td>
-                <td className="px-4">Aksi</td>
+      <div className="overflow-x-auto">
+        <table className="table table-xs table-pin-rows table-pin-cols mt-10">
+          <thead>
+            <tr>
+              <th className="px-4">Judul</th>
+              <th className="px-4">Tanggal Terbit</th>
+              <th className="px-10">Kategori</th>
+              <th className="px-4">Penulis</th>
+              <th className="px-4">Aksi</th>
+            </tr>
+          </thead>
+          <tbody className="bg-loginLight">
+            {beritaList.map((berita) => (
+              <tr
+                key={berita.id}
+                className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
+              >
+                <td className="p-4">{berita.title}</td>
+                <td className="p-4">{formatTanggal(berita.date)}</td>
+                <td className="p-4">
+                  <button className="w-32 border rounded-3xl border-gray-300 text-white px-4 py-2 bg-Green hover:bg-green-600 font-normal">
+                    {berita.kategori}
+                  </button>
+                </td>
+                <td className="p-4">{berita.author}</td>
+                <td className="p-4">
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    <FaEdit
+                      className="ml-2 cursor-pointer"
+                      size={20}
+                      onClick={() => handleEdit(berita)}
+                    />
+                    <MdDelete
+                      className="ml-2 cursor-pointer"
+                      size={20}
+                      style={{ color: "green" }}
+                      onClick={() => handleDelete(berita.id)}
+                    />
+                  </span>
+                </td>
               </tr>
-            </thead>
-            <tbody className="bg-loginLight">
-              {beritaList.map((berita) => (
-                <tr
-                  key={berita.id}
-                  className="bg-gray-50 hover:bg-gray-100 border-b border-gray-200"
-                >
-                  <td className="p-4">{berita.title}</td>
-                  <td className="p-4">{formatTanggal(berita.date)}</td>
-                  <td className="p-4">
-                    <button className="w-32 border rounded-3xl border-gray-300 text-white px-4 py-2 bg-Green hover:bg-green-600 font-normal">
-                      {berita.kategori}
-                    </button>
-                  </td>
-                  <td className="p-4">{berita.author}</td>
-                  <td className="p-4">
-                    <span style={{ display: "flex", alignItems: "center" }}>
-                      <FaEdit className="ml-2" size={20} />
-                      <MdDelete
-                        className="ml-2"
-                        size={20}
-                        style={{ color: "green" }}
-                        onClick={() => handleDelete(berita.id)}
-                      />
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-        <div className="bg-white p-6 rounded-lg shadow mt-10">
-          <h2 className="text-lg font-semibold mb-4">Buat Baru</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <h6 className="font-semibold mt-4">Judul Berita</h6>
-                <input
-                  type="text"
-                  name="title"
-                  value={newBerita.title}
-                  onChange={handleInputChange}
-                  placeholder="Judul Berita"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
-                />
-              </div>
+      <div className="bg-white p-6 rounded-lg shadow mt-10">
+        <h2 className="text-lg font-semibold mb-4">
+          {editBerita ? "Edit Berita" : "Tambah Berita Baru"}
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h6 className="font-semibold mt-4">Judul Berita</h6>
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={handleInputChange}
+                placeholder="Judul Berita"
+                className="p-4 bg-gray-100 rounded-lg w-96"
+                required
+              />
 
-              <div className="space-y-4">
-                <h6 className="font-semibold mt-4">Nama Mitra</h6>
-                <input
-                  type="text"
-                  name="mitra"
-                  value={newBerita.mitra}
-                  onChange={handleInputChange}
-                  placeholder="Nama Mitra"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
-                />
-              </div>
+              <h6 className="font-semibold mt-4">Mitra</h6>
+              <input
+                type="text"
+                name="mitra"
+                value={mitra}
+                onChange={handleInputChange}
+                placeholder="Mitra"
+                className="p-4 bg-gray-100 rounded-lg w-96"
+                required
+              />
+              <h6 className="font-semibold mt-4">Penulis</h6>
+              <input
+                type="text"
+                name="author"
+                value={author}
+                onChange={handleInputChange}
+                placeholder="Penulis"
+                className="p-4 bg-gray-100 rounded-lg w-96"
+                required
+              />
 
-              <div className="space-y-4">
-                <h6 className="font-semibold mt-4">Tanggal Posting</h6>
-                <input
-                  type="date"
-                  name="date"
-                  value={newBerita.date}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
-                />
-              </div>
+              <h6 className="font-semibold mt-4">Tanggal</h6>
+              <input
+                type="date"
+                name="date"
+                value={date}
+                onChange={handleInputChange}
+                placeholder="Tanggal"
+                className="p-4 bg-gray-100 rounded-lg w-96"
+                required
+              />
 
-              <div className="space-y-4">
-                <h6 className="font-semibold mt-4">Pilih Kategori</h6>
-                <select
-                  name="kategori"
-                  value={newBerita.kategori}
-                  onChange={handleInputChange}
-                  aria-label="Kategori"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
-                >
-                  <option disabled selected>
-                    Pilih Kategori
-                  </option>
-                  <option value="Berita">Berita</option>
-                  <option value="Publikasi">Publikasi</option>
-                  <option value="F&Q">F&Q</option>
-                </select>
-              </div>
+              <h6 className="font-semibold mt-4">Kategori</h6>
+              <select
+                name="kategori"
+                value={kategori}
+                onChange={handleInputChange}
+                className="p-4 bg-gray-100 rounded-lg w-96"
+                required
+              >
+                <option value=""> Kategori</option>
+                <option value="Berita">Berita</option>
+                <option value="Publikasi">Publikasi</option>
+                <option value="FAQ">FAQ</option>
+              </select>
             </div>
 
-            <div className="mt-8">
-              <h6 className="text-lg font-semibold mb-4">Deskripsi</h6>
+            <div className="space-y-4">
+              <h6 className="font-semibold mt-4">Deskripsi</h6>
               <textarea
                 name="descripsi"
-                value={newBerita.descripsi}
+                value={descripsi}
                 onChange={handleInputChange}
-                placeholder="Tuliskan Berita Anda"
-                className="textarea textarea-bordered textarea-lg w-full h-32 p-4 flex justify-center resize-none"
-              ></textarea>
-            </div>
-
-            <div className="mt-8">
-              <h6 className="text-lg font-semibold mb-4">
-                Unggah Foto Publikasi/Kegiatan
-              </h6>
-              <input
-                type="file"
-                name="img"
-                onChange={handleFileChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:border-transparent"
+                placeholder="Deskripsi Berita"
+                className="p-4 bg-gray-100 rounded-lg w-96 h-48"
+                required
               />
-            </div>
 
-            <div className="text-right mt-6">
-              <button className="w-96 bg-[#4CAF50] text-white py-2 px-2 rounded-md hover:bg-[#45a049]">
-                Publikasi
-              </button>
+              <h6 className="font-semibold mt-4">Gambar</h6>
+              <div className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer">
+                <input
+                  type="file"
+                  accept=".jpg,.png,.svg"
+                  onChange={handleFileChange}
+                  className="hidden"
+                  id="file-input"
+                />
+                <label
+                  htmlFor="file-input"
+                  className="cursor-pointer flex flex-col items-center justify-center w-full h-full"
+                >
+                  {img ? (
+                    <img
+                      src={
+                        typeof img === "string"
+                          ? `/uploads/${img}`
+                          : URL.createObjectURL(img)
+                      }
+                      alt="Uploaded"
+                      className="h-full w-full object-cover rounded-lg"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center">
+                      <img src="../image/upload.png" alt="" className="w-12" />
+                      <span className="text-sm text-gray-500">
+                        Mohon Unggah dalam file .jpg, .png, .svg
+                      </span>
+                    </div>
+                  )}
+                </label>
+              </div>
+
+              <div className="flex justify-end mt-4">
+                <button
+                  type="submit"
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg"
+                >
+                  {editBerita ? "Simpan Perubahan" : "Tambah Berita"}
+                </button>
+              </div>
             </div>
-          </form>
-        </div>
-      </main>
-    </>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 };
 

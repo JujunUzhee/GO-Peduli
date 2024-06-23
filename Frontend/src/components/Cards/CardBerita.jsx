@@ -39,7 +39,7 @@ const CardBerita = ({ data, limit }) => {
         <div className="max-w-sm rounded overflow-hidden shadow-lg" key={data.id}>
           <img
             className="w-full h-44"
-            src={data.img}
+            src={`${import.meta.env.VITE_BACKEND_URL}${data.img}`}
             alt="Placeholder"
           />
           <div className="px-6 py-4 bg-gray-50 rounded-tr-3xl">

@@ -32,14 +32,23 @@ const getBeritaById = async (req, res) => {
 
 const postBerita = async (req, res) => {
   try {
-    const { date, title, descripsi, author } = req.body;
+    const { date, title, descripsi, author,kategori } = req.body;
     const img = req.file ? req.file.filename : null;
-    if (!img || !date || !title || !descripsi || !author) {
+
+    console.log('Received data:');
+    console.log('Date:', date);
+    console.log('Title:', title);
+    console.log('Descripsi:', descripsi);
+    console.log('Author:', author);
+    console.log('Kategori:', kategori);
+    console.log('Image:', img);
+    
+    if (!img || !date || !title || !descripsi || !author || !kategori) {
       return res.status(400).json({ error: "Semua kolom harus diisi" });
     }
 
-    const tambahBeritaQuery = `INSERT INTO berita (img, date, title, descripsi, author) VALUES (?, ?, ?, ?, ?)`;
-    await query(tambahBeritaQuery, [img, date, title, descripsi, author]);
+    const tambahBeritaQuery = `INSERT INTO berita (img, date, title, descripsi, author,kategori) VALUES (?, ?, ?, ?, ?,?)`;
+    await query(tambahBeritaQuery, [img, date, title, descripsi, author, kategori]);
 
     res.status(201).json({ message: "Berita berhasil ditambahkan" });
   } catch (error) {
@@ -50,7 +59,7 @@ const postBerita = async (req, res) => {
 
 const updateBerita = async (req, res) => {
   const { id } = req.params;
-  const { date, title, descripsi, author } = req.body;
+  const { date, title, descripsi, author,kategori } = req.body;
   const img = req.file ? req.file.filename : null;
 
   try {
@@ -59,8 +68,8 @@ const updateBerita = async (req, res) => {
       return res.status(404).json({ message: "Berita tidak ditemukan" });
     }
 
-    const updateQuery = `UPDATE berita SET img = COALESCE(?, img), date = ?, title = ?, descripsi = ?, author = ? WHERE id = ?`;
-    await query(updateQuery, [img, date, title, descripsi, author, id]);
+    const updateQuery = `UPDATE berita SET img = COALESCE(?, img), date = ?, title = ?, descripsi = ?, author = ?, kategori = ? WHERE id = ?`;
+    await query(updateQuery, [img, date, title, descripsi, author,kategori, id]);
 
     res.status(200).json({ message: "Berita berhasil diperbarui" });
   } catch (error) {
