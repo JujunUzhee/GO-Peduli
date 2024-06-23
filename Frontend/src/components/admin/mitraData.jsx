@@ -6,6 +6,7 @@ import { FaDatabase } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import { MdUpload } from "react-icons/md";
 import { MdRadioButtonUnchecked } from "react-icons/md";
+
 const MitraData = () => {
   const [mitra ,setMitra] = useState([])
 
@@ -213,7 +214,6 @@ const MitraData = () => {
               </div>
             </div>
             <div className="gap-[13px] w-full flex px-[46px] py-[4px] relative max-w-[222px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start">
-
               <FaDatabase />
               <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
                 <p className="text-[#222831] text-[16px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-bold leading-[40px] mb-0 tracking-[0px] normal-case">
@@ -295,7 +295,6 @@ const MitraData = () => {
                 </div>
                 <div className="gap-[8px] w-full flex relative max-w-[262px] box-border items-center justify-start">
                   <div className="gap-[8px] w-full flex p-[24px] relative max-w-[98px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[4px] rounded-br-[4px] rounded-tr-[4px] rounded-bl-[4px] justify-center bg-[#fafafa]">
-
                     <MdUpload className="text-green-700 text-5xl" />
                   </div>
                   <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-left mb-0">
