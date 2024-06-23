@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import { CiSearch } from "react-icons/ci";
 import { TiEdit } from "react-icons/ti";
@@ -6,12 +6,37 @@ import { FaDatabase } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import { MdUpload } from "react-icons/md";
 import { MdRadioButtonUnchecked } from "react-icons/md";
+
 const MitraData = () => {
+  const [mitra, setMitra] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/mitra-formulir`
+        );
+        const data = await response.json();
+        setMitra(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const formatTanggal = (tanggal) => {
+    const date = new Date(tanggal);
+    const formattedDate = date.toLocaleDateString("id-ID", { timeZone: "UTC" });
+    return formattedDate;
+  };
+
   return (
     <>
       <div className="flex bg-loginLight min-h-screen w-full overflow-x-hidden">
         <SideBar />
-        <main className="flex-grow p-6 w-full bg-white rounded-xl ml-5 mt-4 h-full mr-5 max-w-[820px]">
+        <main className="flex-grow p-6 w-full bg-white rounded-xl ml-5 mt-4 h-full mr-5 max-w-[850px]">
           {/* ini tampilan Data Donatur */}
           <div className="flex justify-between mb-6">
             <div>
@@ -134,66 +159,68 @@ const MitraData = () => {
             </button>
           </div>
           {/*  */}
-          <div className="mt-6">
-            <div className="w-full flex gap-4 max-w-[1004px] items-start justify-between ">
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Nama
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  Naratama Abinaya
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Lokasi
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  Rembang
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Kategori
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  Anak-Anak
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Pengiriman
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  -
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Tanggal
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  01-12-2024
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Email
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  Naraabi@gmail.com
-                </p>
-              </div>
-              <div className="flex-1">
-                <p className="text-[#64b479] text-[14px] font-['Poppins',_sans-serif] font-bold leading-[40px]">
-                  Alamat
-                </p>
-                <p className="text-[#000000] text-[14px] font-['Poppins',_sans-serif] leading-[40px]">
-                  Desa Sluke Rt 00 Rw 00 Kecamatan Sluke Kabupaten Rembang Jawa
-                  Tengah
-                </p>
-              </div>
-            </div>
+          {/*
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+*/}
+
+          <div className="overflow-x-auto rounded-lg border border-gray-200 mt-6 w-full">
+            <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead className="ltr:text-left rtl:text-right text-Green">
+                <tr>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green ">
+                    Nama
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    Lokasi
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    Kategori
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    Pengiriman
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    tanggal
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    Email
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-Green">
+                    Alamat
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="divide-y divide-gray-200">
+                {mitra.map((data, id) => (
+                  <tr key={id}>
+                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      {data.judul_donasi}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {data.lokasi}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {data.pengantaran}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {formatTanggal(data.tanggal_akhir)}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {data.nama_mitra}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {data.email}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {data.kategori}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
           {/*  */}
         </main>
@@ -205,13 +232,6 @@ const MitraData = () => {
               </p>
             </div>
             <div className="gap-[13px] w-full flex px-[46px] py-[4px] relative max-w-[222px] box-border items-center rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start bg-[#64b479]">
-              {/* <img
-                src="./assets/I7221187672211865.svg"
-                alt="instance"
-                width="24"
-                height="24"
-                className="w-full overflow-hidden max-w-[24px] box-border items-start flex-col justify-start"
-              /> */}
               <TiEdit className="text-white text-2xl" />
               <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
                 <p className="text-[#fdfdfd] text-[16px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-bold leading-[40px] mb-0 tracking-[0px] normal-case">
@@ -220,13 +240,6 @@ const MitraData = () => {
               </div>
             </div>
             <div className="gap-[13px] w-full flex px-[46px] py-[4px] relative max-w-[222px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start">
-              {/* <img
-                src="./assets/I7221188172211872.svg"
-                alt="instance"
-                width="24"
-                height="24"
-                className="w-full overflow-hidden max-w-[24px] box-border"
-              /> */}
               <FaDatabase />
               <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
                 <p className="text-[#222831] text-[16px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-bold leading-[40px] mb-0 tracking-[0px] normal-case">
@@ -240,13 +253,6 @@ const MitraData = () => {
               </p>
             </div>
             <div className="gap-[13px] w-full flex px-[33px] py-[4px] relative max-w-[222px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[8px] rounded-br-[8px] rounded-tr-[8px] rounded-bl-[8px] justify-start">
-              {/* <img
-                src="./assets/I7221190272211872.svg"
-                alt="instance"
-                width="24"
-                height="24"
-                className="w-full overflow-hidden max-w-[24px] box-border items-start flex-col justify-start"
-              /> */}
               <IoIosLink className="text-2xl" />
               <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-center mb-0">
                 <p className="text-[#222831] text-[16px] not-italic mt-0 text-center font-['Poppins',_sans-serif] font-bold leading-[40px] mb-0 tracking-[0px] normal-case">
@@ -268,13 +274,6 @@ const MitraData = () => {
                     Sertifikat Mitra
                   </p>
                 </div>
-                {/* <img
-                  src="./assets/72211920.svg"
-                  alt="instance"
-                  width="24"
-                  height="24"
-                  className="w-full max-w-[24px] box-border rounded-[100%]"
-                /> */}
                 <MdRadioButtonUnchecked className="text-green-700 text-5xl" />
               </div>
               <div className="gap-[8px] w-full flex relative max-w-[262px] box-border items-start flex-col justify-center">
@@ -285,13 +284,6 @@ const MitraData = () => {
                 </div>
                 <div className="gap-[8px] w-full flex relative max-w-[262px] box-border items-center justify-start">
                   <div className="gap-[8px] w-full flex p-[24px] relative max-w-[98px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[4px] rounded-br-[4px] rounded-tr-[4px] rounded-bl-[4px] justify-center bg-[#fafafa]">
-                    {/* <img
-                      src="./assets/I722118927085201.svg"
-                      alt="instance"
-                      width="50"
-                      height="50"
-                      className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
-                    /> */}
                     <MdUpload className="text-green-700 text-5xl" />
                   </div>
                   <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-left mb-0">
@@ -303,12 +295,10 @@ const MitraData = () => {
                     </p>
                   </div>
                 </div>
-                <div className="gap-[8px] w-full flex p-[4px] relative max-w-[98px] box-border items-center rounded-tl-[4px] rounded-br-[4px] rounded-tr-[4px] rounded-bl-[4px] justify-between bg-[#64b479]">
-                  <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-left mb-0">
-                    <p className="text-[#fafafa] text-[14px] not-italic mt-0 text-left font-['Poppins',_sans-serif] font-bold leading-[40px] mb-0 tracking-[0px] normal-case">
-                      Unggah
-                    </p>
-                  </div>
+                <div className=" p-[4px] w-[98px] rounded-md  bg-Green">
+                  <p className="text-white text-[14px] not-italic mt-0 text-left  font-bold leading-[40px] ml-4">
+                    Unggah
+                  </p>
                 </div>
               </div>
             </div>
@@ -319,13 +309,6 @@ const MitraData = () => {
                     Sertifikat Donatur
                   </p>
                 </div>
-                {/* <img
-                  src="./assets/72211925.svg"
-                  alt="instance"
-                  width="24"
-                  height="24"
-                  className="w-full max-w-[24px] box-border rounded-[100%]"
-                /> */}
                 <MdRadioButtonUnchecked className="text-green-700 text-5xl" />
               </div>
               <div className="gap-[8px] w-full flex relative max-w-[262px] box-border items-start flex-col justify-center">
@@ -336,13 +319,6 @@ const MitraData = () => {
                 </div>
                 <div className="gap-[8px] w-full flex relative max-w-[262px] box-border items-center justify-start">
                   <div className="gap-[8px] w-full flex p-[24px] relative max-w-[98px] [border-top:1px_solid_#64b479] box-border items-center [border-left:1px_solid_#64b479] [border-right:1px_solid_#64b479] [border-bottom:1px_solid_#64b479] rounded-tl-[4px] rounded-br-[4px] rounded-tr-[4px] rounded-bl-[4px] justify-center bg-[#fafafa]">
-                    {/* <img
-                      src="./assets/I722119277085201.svg"
-                      alt="instance"
-                      width="50"
-                      height="50"
-                      className="w-full overflow-hidden max-w-[50px] box-border items-start flex-col justify-start"
-                    /> */}
                     <MdUpload className="text-green-700 text-5xl" />
                   </div>
                   <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-left mb-0">
@@ -371,13 +347,6 @@ const MitraData = () => {
               className="w-full h-px m-0 block max-w-[290px] max-h-px"
             />
             <div className="gap-[8px] w-full flex relative max-w-[116px] box-border items-center justify-start">
-              {/* <img
-                src="./assets/72211977.svg"
-                alt="instance"
-                width="24"
-                height="16"
-                className="w-full max-w-[24px] box-border rounded-[100%]"
-              /> */}
               <MdRadioButtonUnchecked className="text-green-700 text-4xl" />
               <div className="w-full max-w-[auto] mt-0 min-h-[auto] text-left mb-0">
                 <p className="text-[#000000] text-[14px] not-italic mt-0 text-left font-['Poppins',_sans-serif] font-semibold leading-[40px] mb-0 tracking-[0px] normal-case">
